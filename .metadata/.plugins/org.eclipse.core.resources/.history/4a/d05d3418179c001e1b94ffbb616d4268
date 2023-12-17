@@ -1,0 +1,46 @@
+package junit.monprojet.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import junit.monprojet.SommeArgent;
+
+class SommeArgentTest {
+
+    private SommeArgent m12CHF;
+    private SommeArgent m14CHF;
+    private SommeArgent m14USD;
+
+    @BeforeEach
+    void setUp() {
+        System.out.println("1ime passage avant exécution d'une méthode de test");
+        m12CHF = new SommeArgent(12, "CHF");
+        m14CHF = new SommeArgent(14, "CHF");
+        m14USD = new SommeArgent(14, "USD");
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("1ime passage APRES exécution d'une méthode de test");
+        // Code de désallocation commun ici
+    }
+
+    @Test
+    void testEquals() {
+        System.out.println("2ime passage avant exécution d'une méthode de test");
+        assertFalse(m12CHF.equals(null));
+        assertTrue(m12CHF.equals(m12CHF));
+        assertTrue(m12CHF.equals(new SommeArgent(12, "CHF")));
+        assertFalse(m12CHF.equals(m14CHF));
+        assertFalse(m14USD.equals(m14CHF));
+        System.out.println("2ime passage APRES exécution d'une méthode de test");
+    }
+
+    // D'autres méthodes de test peuvent être ajoutées ici
+
+}

@@ -1,0 +1,23 @@
+package junit.monprojet.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import junit.monprojet.SommeArgent;
+
+
+	class SommeArgentTest {
+
+	    @Test
+	    void testAddition() {
+	        SommeArgent m12CHF = new SommeArgent(12, "CHF");
+	        SommeArgent m14CHF = new SommeArgent(14, "CHF");
+	        SommeArgent expected = new SommeArgent(26, "CHF");
+	        SommeArgent result = m12CHF.add(m14CHF);
+	        assertTrue(expected.equals(result));
+	    }
+	}
+
+
+

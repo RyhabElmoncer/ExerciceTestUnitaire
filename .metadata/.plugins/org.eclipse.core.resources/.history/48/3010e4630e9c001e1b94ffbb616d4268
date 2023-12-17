@@ -1,0 +1,22 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import junit.monprojet.SommeArgent;
+
+class SommeArgentTest {
+
+    @Test
+    void testEquals() {
+        SommeArgent m12CHF = new SommeArgent(12, "CHF");
+        SommeArgent m14CHF = new SommeArgent(14, "CHF");
+        SommeArgent m14USD = new SommeArgent(14, "USD");
+
+        assertFalse(m12CHF.equals(null));
+        assertTrue(m12CHF.equals(m12CHF));
+        assertTrue(m12CHF.equals(new SommeArgent(12, "CHF")));
+        assertFalse(m12CHF.equals(m14CHF));
+        assertFalse(m14USD.equals(m14CHF));
+    }
+}
